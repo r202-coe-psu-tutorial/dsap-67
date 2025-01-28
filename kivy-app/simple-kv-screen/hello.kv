@@ -1,0 +1,39 @@
+<ScreenManagement>:
+    LoginScreen:
+    HomeScreen:
+
+<LoginScreen>:
+    name: "login"
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: "Username:"
+            TextInput:
+                id: username
+                hint_text: "Username"
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: "Password:"
+            TextInput:
+                id: password
+                hint_text: "Password"
+                password: True
+        Button:
+            text: "Submit"
+            on_press: root.check_credentials()
+        Label:
+            id: result_label
+            text: "Result will be shown here."
+
+<HomeScreen>:
+    name: "home"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Welcome to the Home Screen!"
+        Button:
+            text: "Logout"
+            on_press: app.root.current = "login"
