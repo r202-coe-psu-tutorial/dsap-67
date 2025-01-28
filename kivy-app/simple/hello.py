@@ -1,0 +1,36 @@
+from kivy.app import App
+from kivy.uix.label import Label
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.textinput import TextInput
+from kivy.uix.button import Button
+
+
+class HelloApp(App):
+    def build(self):
+        layout = BoxLayout(orientation="vertical")
+        username_layout = BoxLayout(orientation="horizontal")
+        password_layout = BoxLayout(orientation="horizontal")
+
+        label_username = Label(text="Username:")
+        self.username = TextInput(hint_text="Username")
+
+        label_password = Label(text="Password:")
+        self.password = TextInput(hint_text="Password", password=True)
+
+        submit_button = Button(text="Submit")
+
+        username_layout.add_widget(label_username)
+        username_layout.add_widget(self.username)
+
+        password_layout.add_widget(label_password)
+        password_layout.add_widget(self.password)
+
+        layout.add_widget(username_layout)
+        layout.add_widget(password_layout)
+        layout.add_widget(submit_button)
+
+        return layout
+
+
+if __name__ == "__main__":
+    HelloApp().run()
